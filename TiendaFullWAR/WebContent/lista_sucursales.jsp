@@ -1,22 +1,22 @@
 <%@page import="cl.inacap.tiendafullejb.model.Usuario"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <%
 Usuario usuario = (Usuario) session.getAttribute("usuario");
-if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) { //Aca es cuando se verifica que el usuario esté autenticado.
+if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) { //Aca es cuando se verifica que el usuario estÃ© autenticado.
 %>
 	<table>
 		<tr>
 			<td>Administrador: <%=usuario.getNombre() + " " + usuario.getApellido()%></td>
-			<td><a href="cerrar_sesion.jsp">Cerrar sesión</a></td>
+			<td><a href="cerrar_sesion.jsp">Cerrar sesiÃ³n</a></td>
 		</tr>
 	</table>
 	<h3>Opciones</h3>
@@ -35,11 +35,11 @@ if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) { //Aca es cuand
 		<tr>
 			<th>ID</th>
 			<th>Nombre</th>
-			<th>Dirección</th>
+			<th>DirecciÃ³n</th>
 			<th>Comuna</th>
-			<th>Teléfono</th>
-			<th>Opción 1</th>
-			<th>Opción 2</th>
+			<th>TelÃ©fono</th>
+			<th>OpciÃ³n 1</th>
+			<th>OpciÃ³n 2</th>
 		</tr>
 		<c:forEach items="${sucursales}" var="su">
 			<tr>
@@ -67,7 +67,7 @@ if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) { //Aca es cuand
 	<center>
 		<a href="index.html">Inicio</a>
 	</center>
-	<p>Debes iniciar sesión para poder ver el contenido</p>
+	<p>Debes iniciar sesiÃ³n para poder ver el contenido</p>
 <%
 }
 %>

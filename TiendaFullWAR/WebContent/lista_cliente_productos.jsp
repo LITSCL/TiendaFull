@@ -2,24 +2,24 @@
 <%@page import="cl.inacap.tiendafullejb.model.Producto"%>
 <%@page import="java.util.List"%>
 <%@page import="cl.inacap.tiendafullejb.model.Usuario"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <% 
 Usuario usuario = (Usuario)session.getAttribute("usuario");
-if (usuario != null && usuario.getTipo().equalsIgnoreCase("c") && request.getAttribute("filtro") == null) {  //Aca es cuando se verifica que el usuario esté autenticado.		
+if (usuario != null && usuario.getTipo().equalsIgnoreCase("c") && request.getAttribute("filtro") == null) {  //Aca es cuando se verifica que el usuario estÃ© autenticado.		
 %>
 	<table>
 		<tr>
 			<td>Cliente: <%=usuario.getNombre() + " " + usuario.getApellido()%></td>
-			<td><a href="cerrar_sesion.jsp">Cerrar sesión</a></td>
+			<td><a href="cerrar_sesion.jsp">Cerrar sesiÃ³n</a></td>
 		</tr>
 	</table>
 	<h3>Opciones</h3>
@@ -31,7 +31,7 @@ if (usuario != null && usuario.getTipo().equalsIgnoreCase("c") && request.getAtt
 	<hr>
 
 	<form action="FiltroUtils" method="GET">
-		<label for="nombreCategoria">Filtrar producto por nombre de categoría</label> 
+		<label for="nombreCategoria">Filtrar producto por nombre de categorÃ­a</label> 
 		<select name="nombreCategoria" id="nombreCategoria">
 			<c:forEach items="${categorias}" var="ca">
 
@@ -47,11 +47,11 @@ if (usuario != null && usuario.getTipo().equalsIgnoreCase("c") && request.getAtt
 		<tr>
 			<th>ID</th>
 			<th>Nombre</th>
-			<th>Descipción</th>
+			<th>DescipciÃ³n</th>
 			<th>Precio</th>
 			<th>Stock</th>
-			<th>Stock Mínimo</th>
-			<th>Nombre de categoría</th>
+			<th>Stock MÃ­nimo</th>
+			<th>Nombre de categorÃ­a</th>
 		</tr>
 		<%
 		List<Categoria> categorias = (List<Categoria>)request.getAttribute("categorias"); 
@@ -82,7 +82,7 @@ else if (usuario != null && usuario.getTipo().equalsIgnoreCase("c") && request.g
 	<table>
 		<tr>
 			<td>Cliente: <%=usuario.getNombre() + " " + usuario.getApellido()%></td>
-			<td><a href="cerrar_sesion.jsp">Cerrar sesión</a></td>
+			<td><a href="cerrar_sesion.jsp">Cerrar sesiÃ³n</a></td>
 		</tr>
 	</table>
 	<h3>Opciones</h3>
@@ -94,7 +94,7 @@ else if (usuario != null && usuario.getTipo().equalsIgnoreCase("c") && request.g
 	<hr/>
 
 	<form action="FiltroUtils" method="GET">
-		<label for="categoria">Filtrar producto por nombre de categoría</label> 
+		<label for="categoria">Filtrar producto por nombre de categorÃ­a</label> 
 		<select name="nombreCategoria" id="nombreCategoria">
 			<c:forEach items="${categorias}" var="ca">
 
@@ -109,11 +109,11 @@ else if (usuario != null && usuario.getTipo().equalsIgnoreCase("c") && request.g
 		<tr>
 			<th>ID</th>
 			<th>Nombre</th>
-			<th>Descipción</th>
+			<th>DescipciÃ³n</th>
 			<th>Precio</th>
 			<th>Stock</th>
-			<th>Stock Mínimo</th>
-			<th>Nombre de categoría</th>
+			<th>Stock MÃ­nimo</th>
+			<th>Nombre de categorÃ­a</th>
 		</tr>
 <%
 List<Categoria> categorias = (List<Categoria>)request.getAttribute("categorias"); 
@@ -152,7 +152,7 @@ else {
 	<center>
 		<a href="index.html">Inicio</a>
 	</center>
-	<p>Debes iniciar sesión para poder ver el contenido</p>
+	<p>Debes iniciar sesiÃ³n para poder ver el contenido</p>
 <%
 }
 %>

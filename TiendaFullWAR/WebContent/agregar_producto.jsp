@@ -2,23 +2,23 @@
 <%@page import="cl.inacap.tiendafullejb.model.Categoria"%>
 <%@page import="java.util.List"%>
 <%@page import="cl.inacap.tiendafullejb.model.Usuario"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <%
 Usuario usuario = (Usuario) session.getAttribute("usuario");
-if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) { //Aca es cuando se verifica que el usuario esté autenticado.
+if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) { //Aca es cuando se verifica que el usuario estÃ© autenticado.
 %>
 	<table>
 		<tr>
 			<td>Administrador: <%=usuario.getNombre() + " " + usuario.getApellido()%></td>
-			<td><a href="cerrar_sesion.jsp">Cerrar sesión</a></td>
+			<td><a href="cerrar_sesion.jsp">Cerrar sesiÃ³n</a></td>
 		</tr>
 	</table>
 	<h3>Opciones</h3>
@@ -44,7 +44,7 @@ if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) { //Aca es cuand
 			<td><input type="text" name="nombre" form="formulario_agregar_producto" required></td>
 		</tr>
 		<tr>
-			<td><label for="descripcion">Descripción</label></td>
+			<td><label for="descripcion">DescripciÃ³n</label></td>
 			<td><input type="text" name="descripcion" form="formulario_agregar_producto" required></td>
 		</tr>
 		<tr>
@@ -60,16 +60,16 @@ if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) { //Aca es cuand
 			<td><label for="stockMinimo">Stock Minimo</label></td>
 			<td><input type="number" name="stockMinimo" form="formulario_agregar_producto" required></td>
 		</tr>
-		<!-- Acá hay que traer las categorias, mostrarlas y que el administrador las elija (Se debe tomar el ID del objeto) -->
+		<!-- AcÃ¡ hay que traer las categorias, mostrarlas y que el administrador las elija (Se debe tomar el ID del objeto) -->
 		<tr>
-			<td><label for="categoria">Categoría</label></td>
+			<td><label for="categoria">CategorÃ­a</label></td>
 			<td>
 				<select name="categoria" id="categoria" form="formulario_agregar_producto">
 					<%
 					List<Categoria> categorias = new ArrayList<Categoria>();
-					categorias = (List<Categoria>) request.getAttribute("categorias"); //Jamás deben haber archivos nulos en un JSP (Esta lista nunca debe ser nula).
+					categorias = (List<Categoria>) request.getAttribute("categorias"); //JamÃ¡s deben haber archivos nulos en un JSP (Esta lista nunca debe ser nula).
 					for (Categoria ca : categorias) {
-						out.print("<option value=" + ca.getId() + ">" + ca.getNombre() + "</option>"); //Al administrador se le muestra el nombre, pero se envía el id.
+						out.print("<option value=" + ca.getId() + ">" + ca.getNombre() + "</option>"); //Al administrador se le muestra el nombre, pero se envÃ­a el id.
 					}
 					%>
 				</select>
@@ -93,7 +93,7 @@ if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) { //Aca es cuand
 	<center>
 		<a href="index.html">Inicio</a>
 	</center>
-	<p>Debes iniciar sesión para poder ver el contenido</p>
+	<p>Debes iniciar sesiÃ³n para poder ver el contenido</p>
 <%
 }
 %>
