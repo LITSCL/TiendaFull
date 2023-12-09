@@ -54,13 +54,13 @@ public class UsuarioControlador extends HttpServlet {
 				}
 			}
 			
-			//Si los datos coinciden se crea la sesi�n y se redirecciona.
+			//Si los datos coinciden se crea la sesión y se redirecciona.
 			if (usuario != null && usuario.getTipo().equalsIgnoreCase("c")) {
-				request.getSession().setAttribute("usuario", usuario); //Aca se crea la sesi�n.
+				request.getSession().setAttribute("usuario", usuario); //Aca se crea la sesión.
 				response.sendRedirect("pagina_principal_cliente.jsp");
 			}
 			else if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) {
-				request.getSession().setAttribute("usuario", usuario); //Aca se crea la sesi�n.
+				request.getSession().setAttribute("usuario", usuario); //Aca se crea la sesión.
 				response.sendRedirect("pagina_principal_administrador.jsp");
 			}
 			else {

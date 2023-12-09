@@ -33,9 +33,9 @@ public class Servicio implements ServicioLocal {
 		try {
 			em.persist(su);
 			em.flush();
-			return "Sucursal a�adida con exito";
+			return "Sucursal añadida con exito";
 		} catch (Exception ex) {
-			return "No se pudo a�adir la sucursal";
+			return "No se pudo añadir la sucursal";
 		}
 		finally {
 			em.close();
@@ -112,9 +112,9 @@ public class Servicio implements ServicioLocal {
 		try {
 			em.persist(pr);
 			em.flush();
-			return "Producto a�adido con exito";
+			return "Producto añadido con exito";
 		} catch (Exception ex) {
-			return "No se pudo a�adir el producto";
+			return "No se pudo añadir el producto";
 		}
 		finally {
 			em.close();
@@ -181,9 +181,9 @@ public class Servicio implements ServicioLocal {
 		try {
 			em.persist(ca);
 			em.flush();
-			return "Categor�a a�adida con exito";
+			return "Categoría añadida con exito";
 		} catch (Exception ex) {
-			return "No se pudo a�adir la categor�a";
+			return "No se pudo añadir la categoría";
 		}
 		finally {
 			em.close();
@@ -200,7 +200,7 @@ public class Servicio implements ServicioLocal {
 			em.flush();
 			return null;
 		} catch (Exception ex) {
-			return "No se puede borrar (La categor�a esta siendo utilizada por un producto)";
+			return "No se puede borrar (La categoría esta siendo utilizada por un producto)";
 		}
 		finally {
 			em.close();
@@ -247,9 +247,9 @@ public class Servicio implements ServicioLocal {
 		try {
 			em.persist(us);
 			em.flush();
-			return "Usuario a�adido con exito";
+			return "Usuario añadido con exito";
 		} catch (Exception ex) {
-			return "No se pudo a�adir el usuario";
+			return "No se pudo añadir el usuario";
 		}
 		finally {
 			em.close();
