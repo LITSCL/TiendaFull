@@ -23,6 +23,10 @@ public class Sucursal implements Serializable {
 	private String direccion;
 	private String comuna;
 	private int telefono;
+
+	public Sucursal() {
+		super();
+	}
 	
 	public int getId() {
 		return id;
@@ -62,10 +66,6 @@ public class Sucursal implements Serializable {
 
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
-	}
-
-	public Sucursal() {
-		super();
 	}
    
 }
