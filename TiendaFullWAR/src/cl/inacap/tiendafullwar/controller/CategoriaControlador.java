@@ -36,57 +36,57 @@ public class CategoriaControlador extends HttpServlet {
 		String opcion = request.getParameter("opcion");
 		
 		switch (opcion) {
-		case "1":
-			List<Categoria> categorias = this.servicioLocal.getAllCategoria();
-			request.setAttribute("categorias", categorias);
-			request.getRequestDispatcher("lista_categorias.jsp").forward(request, response);
-			break;
-		case "2":
-			int id = Integer.parseInt(request.getParameter("id"));
-			String nombre = request.getParameter("nombre");
-			String detalle = request.getParameter("detalle");
-			Categoria ca = new Categoria();
-			ca.setId(id);
-			ca.setNombre(nombre);
-			ca.setDetalle(detalle);
-			String mensaje = servicioLocal.saveCategoria(ca);
-			request.setAttribute("mensaje", mensaje);
-			request.getRequestDispatcher("agregar_categoria.jsp").forward(request, response);
-			break;
-		case "3":
-			int idEliminar = Integer.parseInt(request.getParameter("id"));
-			String mensajeBorrar = servicioLocal.deleteCategoria(idEliminar);
-			categorias = this.servicioLocal.getAllCategoria();
-			request.setAttribute("categorias", categorias);
-			request.setAttribute("mensajeBorrar", mensajeBorrar);
-			if (mensajeBorrar != null) {
-				request.getRequestDispatcher("eliminar_categoria.jsp").forward(request, response);
-			}
-			else {
+			case "1":
+				List<Categoria> categorias = this.servicioLocal.getAllCategoria();
+				request.setAttribute("categorias", categorias);
 				request.getRequestDispatcher("lista_categorias.jsp").forward(request, response);
-			}
-			
-			break;
-		case "4":
-			int idModificar = Integer.parseInt(request.getParameter("id"));
-			String nombreModificar = request.getParameter("nombre");
-			String detalleModificar = request.getParameter("detalle");
-			Categoria cat = new Categoria();
-			cat.setId(idModificar);
-			cat.setNombre(nombreModificar);
-			cat.setDetalle(detalleModificar);
-			servicioLocal.updateCategoria(cat);
-			categorias = this.servicioLocal.getAllCategoria();
-			request.setAttribute("categorias", categorias);
-			request.getRequestDispatcher("lista_categorias.jsp").forward(request, response);
-			break;
-		case "5":
-			List<Categoria> categoriaProductos = this.servicioLocal.getAllCategoria();
-			request.setAttribute("categorias", categoriaProductos);
-			request.getRequestDispatcher("agregar_producto.jsp").forward(request, response);
-			break;
-		default:
-			break;
+				break;
+			case "2":
+				int id = Integer.parseInt(request.getParameter("id"));
+				String nombre = request.getParameter("nombre");
+				String detalle = request.getParameter("detalle");
+				Categoria ca = new Categoria();
+				ca.setId(id);
+				ca.setNombre(nombre);
+				ca.setDetalle(detalle);
+				String mensaje = servicioLocal.saveCategoria(ca);
+				request.setAttribute("mensaje", mensaje);
+				request.getRequestDispatcher("agregar_categoria.jsp").forward(request, response);
+				break;
+			case "3":
+				int idEliminar = Integer.parseInt(request.getParameter("id"));
+				String mensajeBorrar = servicioLocal.deleteCategoria(idEliminar);
+				categorias = this.servicioLocal.getAllCategoria();
+				request.setAttribute("categorias", categorias);
+				request.setAttribute("mensajeBorrar", mensajeBorrar);
+				if (mensajeBorrar != null) {
+					request.getRequestDispatcher("eliminar_categoria.jsp").forward(request, response);
+				}
+				else {
+					request.getRequestDispatcher("lista_categorias.jsp").forward(request, response);
+				}
+				
+				break;
+			case "4":
+				int idModificar = Integer.parseInt(request.getParameter("id"));
+				String nombreModificar = request.getParameter("nombre");
+				String detalleModificar = request.getParameter("detalle");
+				Categoria cat = new Categoria();
+				cat.setId(idModificar);
+				cat.setNombre(nombreModificar);
+				cat.setDetalle(detalleModificar);
+				servicioLocal.updateCategoria(cat);
+				categorias = this.servicioLocal.getAllCategoria();
+				request.setAttribute("categorias", categorias);
+				request.getRequestDispatcher("lista_categorias.jsp").forward(request, response);
+				break;
+			case "5":
+				List<Categoria> categoriaProductos = this.servicioLocal.getAllCategoria();
+				request.setAttribute("categorias", categoriaProductos);
+				request.getRequestDispatcher("agregar_producto.jsp").forward(request, response);
+				break;
+			default:
+				break;
 		}
 	}
 

@@ -36,18 +36,18 @@ public class FiltroUtils extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String opcion = request.getParameter("opcion");
 		switch (opcion) {
-		case "1":
-			List<Producto> productos = this.servicioLocal.getAllProducto();
-			List<Categoria> categorias = this.servicioLocal.getAllCategoria();
-			
-			String filtro = request.getParameter("nombreCategoria");
-			request.setAttribute("filtro", filtro);
-			request.setAttribute("categorias", categorias);
-			request.setAttribute("productos", productos);
-			request.getRequestDispatcher("lista_cliente_productos.jsp").forward(request, response);
-			break;
-		default:
-			break;
+			case "1":
+				List<Producto> productos = this.servicioLocal.getAllProducto();
+				List<Categoria> categorias = this.servicioLocal.getAllCategoria();
+				
+				String filtro = request.getParameter("nombreCategoria");
+				request.setAttribute("filtro", filtro);
+				request.setAttribute("categorias", categorias);
+				request.setAttribute("productos", productos);
+				request.getRequestDispatcher("lista_cliente_productos.jsp").forward(request, response);
+				break;
+			default:
+				break;
 		}
 	}
 

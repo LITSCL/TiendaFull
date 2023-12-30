@@ -42,48 +42,48 @@ public class UsuarioControlador extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		switch (opcion) {
-		case "1":
-			List<Usuario> usuarios = servicioLocal.getAllUsuario();
-			
-			Usuario usuario = null;
-			
-			for (Usuario us : usuarios) { //Se recorre la lista.
-				if (us.getId() == (id) && us.getPassword().equals(password)) {
-					usuario = us; //Si los datos coinciden se almacena el usuario.
-					break;
+			case "1":
+				List<Usuario> usuarios = servicioLocal.getAllUsuario();
+				
+				Usuario usuario = null;
+				
+				for (Usuario us : usuarios) { //Se recorre la lista.
+					if (us.getId() == (id) && us.getPassword().equals(password)) {
+						usuario = us; //Si los datos coinciden se almacena el usuario.
+						break;
+					}
 				}
-			}
-			
-			//Si los datos coinciden se crea la sesión y se redirecciona.
-			if (usuario != null && usuario.getTipo().equalsIgnoreCase("c")) {
-				request.getSession().setAttribute("usuario", usuario); //Aca se crea la sesión.
-				response.sendRedirect("pagina_principal_cliente.jsp");
-			}
-			else if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) {
-				request.getSession().setAttribute("usuario", usuario); //Aca se crea la sesión.
-				response.sendRedirect("pagina_principal_administrador.jsp");
-			}
-			else {
-				request.setAttribute("error", "Usuario incorrecto"); 
-				request.getRequestDispatcher("formulario_login.jsp").forward(request, response); //Aca se envia un String que dice "Usuario incorrecto" al documento especificado.
-			}
-			break;
-		default:
-			String nombre = request.getParameter("nombre");
-			String apellido = request.getParameter("apellido");
-			String correo = request.getParameter("correo");
-			String tipo = request.getParameter("tipo");
-			Usuario us = new Usuario();
-			us.setId(id);
-			us.setPassword(password);
-			us.setNombre(nombre);
-			us.setApellido(apellido);
-			us.setCorreo(correo);
-			us.setTipo(tipo);
-			String mensaje = servicioLocal.saveUsuario(us);
-			request.setAttribute("mensaje", mensaje);
-			request.getRequestDispatcher("formulario_registro.jsp").forward(request, response);
-			break;
+				
+				//Si los datos coinciden se crea la sesión y se redirecciona.
+				if (usuario != null && usuario.getTipo().equalsIgnoreCase("c")) {
+					request.getSession().setAttribute("usuario", usuario); //Aca se crea la sesión.
+					response.sendRedirect("pagina_principal_cliente.jsp");
+				}
+				else if (usuario != null && usuario.getTipo().equalsIgnoreCase("a")) {
+					request.getSession().setAttribute("usuario", usuario); //Aca se crea la sesión.
+					response.sendRedirect("pagina_principal_administrador.jsp");
+				}
+				else {
+					request.setAttribute("error", "Usuario incorrecto"); 
+					request.getRequestDispatcher("formulario_login.jsp").forward(request, response); //Aca se envia un String que dice "Usuario incorrecto" al documento especificado.
+				}
+				break;
+			default:
+				String nombre = request.getParameter("nombre");
+				String apellido = request.getParameter("apellido");
+				String correo = request.getParameter("correo");
+				String tipo = request.getParameter("tipo");
+				Usuario us = new Usuario();
+				us.setId(id);
+				us.setPassword(password);
+				us.setNombre(nombre);
+				us.setApellido(apellido);
+				us.setCorreo(correo);
+				us.setTipo(tipo);
+				String mensaje = servicioLocal.saveUsuario(us);
+				request.setAttribute("mensaje", mensaje);
+				request.getRequestDispatcher("formulario_registro.jsp").forward(request, response);
+				break;
 		}
 	}
 		
